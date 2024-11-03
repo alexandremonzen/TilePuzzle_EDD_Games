@@ -1,12 +1,12 @@
+using System;
+
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
 
 public sealed class TilePiece : MonoBehaviour, IPointerClickHandler
 {
-    private SpriteRenderer _spriteRenderer;
     private Collider2D _collider;
-    private TMP_Text _tmpText;
     private TilePuzzle _tilePuzzle;
     private bool _inCorrectPlace = false;
     private Vector2 _correctPosition;
@@ -14,11 +14,19 @@ public sealed class TilePiece : MonoBehaviour, IPointerClickHandler
     public bool InCorrectPlace { get => _inCorrectPlace; }
     public Vector2 CorrectPosition { get => _correctPosition; }
 
+    public Action<string> OnUpdateTileNumber;
+    public Action OnHideTile;
+    public Action<Sprite> OnUpdateSprite;
+    public Action<bool> OnCleanTile;
+
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
-        _tmpText = GetComponentInChildren<TMP_Text>();
+    }
+
+    private void OnDisable()
+    {
+
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -34,25 +42,24 @@ public sealed class TilePiece : MonoBehaviour, IPointerClickHandler
     public void SetupTile(TilePuzzle tilePuzzle, int number)
     {
         _tilePuzzle = tilePuzzle;
-        _tmpText.text = number.ToString();
+        _tilePuzzle.OnGameOver += SetAllTilePiecesClean;
+        OnUpdateTileNumber?.Invoke(number.ToString());
     }
 
     public void SetAsHideTile()
     {
-        _spriteRenderer.color = Color.clear;
         _collider.enabled = false;
-        _tmpText.color = Color.clear;
+        OnHideTile?.Invoke();
     }
 
-    public void MoveInstantly(Vector2 newPosition)
+    public void SetVisual(Sprite sprite)
     {
-        this.transform.position = newPosition;
-        CheckIfIsInCorrectPlace(this.transform.position);
+        OnUpdateSprite?.Invoke(sprite);
     }
 
     public void CheckIfIsInCorrectPlace(Vector2 newPosition)
     {
-        if(newPosition == _correctPosition)
+        if (newPosition == _correctPosition)
             _inCorrectPlace = true;
         else
             _inCorrectPlace = false;
@@ -61,5 +68,12 @@ public sealed class TilePiece : MonoBehaviour, IPointerClickHandler
     public void SetCorrectPlace()
     {
         _correctPosition = this.transform.position;
+    }
+
+    public void SetAllTilePiecesClean()
+    {
+        //checar se tem a opção de imagem ligada
+
+        OnCleanTile?.Invoke(true);
     }
 }

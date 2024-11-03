@@ -4,9 +4,11 @@ using UnityEngine;
 
 public sealed class TilePuzzle : MonoBehaviour
 {
+    [SerializeField] private PuzzleProfile _puzzleProfile;
     [SerializeField] private TilePiece _tilePiece;
-    [SerializeField] private int _rows = 3;
-    [SerializeField] private int _columns = 3;
+    private int _rows;
+    private int _columns;
+    private Sprite[] _sprites;
 
     private List<TilePiece> _tilePieces = new List<TilePiece>();
     private TilePiece _lastPiece;
@@ -16,20 +18,22 @@ public sealed class TilePuzzle : MonoBehaviour
     private float _yHighestValue;
 
     private bool _canMovePieces = false;
-    WaitForSeconds waitForSeconds = new WaitForSeconds(0);
     private bool _gameOver = false;
 
-    public Action GameIsOver;
-
+    public Action OnGameOver;
 
     private void Awake()
     {
         _totalPieces = 0;
+        _rows = _puzzleProfile.Rows;
+        _columns = _puzzleProfile.Columns;
     }
 
     private void Start()
     {
         GenerateGrid();
+        SetTilesSprites();
+
         CenterPositionGameObjects();
         SetTilePiecesCorrectPlaceValues();
 
@@ -51,7 +55,6 @@ public sealed class TilePuzzle : MonoBehaviour
 
                 TilePiece tilePiece = tilePieceObj.GetComponent<TilePiece>();
                 tilePiece.SetupTile(this, _totalPieces);
-
                 _tilePieces.Add(tilePiece);
 
                 UpdateHighestValues(tilePiece.transform);
@@ -60,6 +63,16 @@ public sealed class TilePuzzle : MonoBehaviour
 
         _lastPiece = _tilePieces[_tilePieces.Count - 1];
         _lastPiece.SetAsHideTile();
+    }
+
+    private void SetTilesSprites()
+    {
+        _sprites = Resources.LoadAll<Sprite>(_puzzleProfile.TextureName);
+
+        for(int i = 0; i < _sprites.Length; i++)
+        {
+            _tilePieces[i].SetVisual(_sprites[i]);
+        }
     }
 
     private void UpdateHighestValues(Transform transformObj)
@@ -159,7 +172,7 @@ public sealed class TilePuzzle : MonoBehaviour
             return;
 
         _gameOver = true;
-        GameIsOver?.Invoke();
+        OnGameOver?.Invoke();
     }
 
     private void AllowMovePieces()
