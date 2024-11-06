@@ -2,9 +2,8 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class TilePuzzle : MonoBehaviour
+public sealed class TilePuzzle : MonoBehaviour, ITilePuzzle
 {
-    [SerializeField] private PuzzleProfile _puzzleProfile;
     [SerializeField] private TilePiece _tilePiece;
     private int _rows;
     private int _columns;
@@ -20,16 +19,25 @@ public sealed class TilePuzzle : MonoBehaviour
     private bool _canMovePieces = false;
     private bool _gameOver = false;
 
+    private IMatchSettings _matchSettings;
+
     public Action OnGameOver;
 
     private void Awake()
     {
         _totalPieces = 0;
-        _rows = _puzzleProfile.Rows;
-        _columns = _puzzleProfile.Columns;
     }
 
-    private void Start()
+    public void InitPuzzle(IMatchSettings matchSettings)
+    {
+        _matchSettings = matchSettings;
+        _rows = _matchSettings.SelectedPuzzleProfile.Rows;
+        _columns = _matchSettings.SelectedPuzzleProfile.Columns;
+
+        StartPuzzle();
+    }
+
+    private void StartPuzzle()
     {
         GenerateGrid();
         SetTilesSprites();
@@ -67,9 +75,9 @@ public sealed class TilePuzzle : MonoBehaviour
 
     private void SetTilesSprites()
     {
-        _sprites = Resources.LoadAll<Sprite>(_puzzleProfile.TextureName);
+        _sprites = Resources.LoadAll<Sprite>(_matchSettings.SelectedPuzzleProfile.TextureName);
 
-        for(int i = 0; i < _sprites.Length; i++)
+        for (int i = 0; i < _sprites.Length; i++)
         {
             _tilePieces[i].SetVisual(_sprites[i]);
         }

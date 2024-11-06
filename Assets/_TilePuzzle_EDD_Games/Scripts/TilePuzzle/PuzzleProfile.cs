@@ -11,5 +11,6 @@ public class PuzzleProfile : ScriptableObject
 
     public int Rows { get => _rows; }
     public int Columns { get => _columns; }
-    public string TextureName { get => _texture2D.name;}
+    public string TextureName { get => _texture2D.name; }
+    public Texture2D Texture2D { get => _texture2D; }
 }
