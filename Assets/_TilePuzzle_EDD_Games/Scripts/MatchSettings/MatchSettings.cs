@@ -6,7 +6,7 @@ public sealed class MatchSettings : Singleton<MatchSettings>
     [SerializeField] private int _mainMenuSceneIndex;
     [SerializeField] private int _gameplaySceneIndex;
 
-    [Header("Puzzle related")]
+    [Header("Puzzle")]
     [SerializeField] private PuzzleProfile _defaultPuzzleProfile;
     private PuzzleProfile _selectedPuzzleProfile;
 

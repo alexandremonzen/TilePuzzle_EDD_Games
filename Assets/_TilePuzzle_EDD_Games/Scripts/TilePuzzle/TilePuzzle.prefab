@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 491705969109512856}
   - component: {fileID: 5214762120666741844}
+  - component: {fileID: 3709746559019345064}
   m_Layer: 0
   m_Name: TilePuzzle
   m_TagString: Untagged
@@ -130,3 +131,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _tilePiece: {fileID: 3448724048726380944, guid: cf4ef28044b1d8d4fae6262d01e169ba,
     type: 3}
+--- !u!114 &3709746559019345064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4518827974812056489}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c003e3dc30f9e741a951362db52ba34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _keepAllPiecesTogetherMask: {fileID: 2489728896600436939}
+  _durationTogetherMask: 1
+  _maxScaleTogetherMask: 1.1875

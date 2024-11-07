@@ -19,6 +19,7 @@ public sealed class GameOverCondition : MonoBehaviour
     public event Action<int> OnTimeUpdated;
     public event Action OnMovesOver;
     public event Action<int> OnMovesUpdated;
+    public event Action OnGameWon;
     #endregion
 
     private void Awake()
@@ -43,13 +44,16 @@ public sealed class GameOverCondition : MonoBehaviour
         _tilePuzzle.OnStartedPuzzle += StartCountdownTimer;
 
         if (_movesAvailable > 0)
-            _tilePuzzle.OnMovePiece += CheckMovesAvailable;
+            _tilePuzzle.OnMovedPiece += CheckMovesAvailable;
+
+        _tilePuzzle.OnCompletedPuzzle += GameWon;
     }
 
     private void OnDisable()
     {
         _tilePuzzle.OnStartedPuzzle -= StartCountdownTimer;
-        _tilePuzzle.OnMovePiece -= CheckMovesAvailable;
+        _tilePuzzle.OnMovedPiece -= CheckMovesAvailable;
+        _tilePuzzle.OnCompletedPuzzle -= GameWon;
     }
 
     private void OnDestroy()
@@ -74,7 +78,7 @@ public sealed class GameOverCondition : MonoBehaviour
             OnTimeUpdated?.Invoke(_secondsRemaing);
         }
 
-        OnGameOverByTime();
+        GameOverByTime();
     }
 
     private void CheckMovesAvailable()
@@ -83,27 +87,32 @@ public sealed class GameOverCondition : MonoBehaviour
         OnMovesUpdated?.Invoke(_movesAvailable);
 
         if (_movesAvailable <= 0)
-            OnGameOverByMoves();
+            GameOverByMoves();
     }
 
     #region Game Over Methods
-
     private void GameOver()
     {
         StopAllCoroutines();
         _tilePuzzle.StopPuzzle();
     }
 
-    private void OnGameOverByTime()
+    private void GameOverByTime()
     {
         GameOver();
         OnTimeEnded?.Invoke();
     }
 
-    private void OnGameOverByMoves()
+    private void GameOverByMoves()
     {
         GameOver();
         OnMovesOver?.Invoke();
+    }
+
+    private void GameWon()
+    {
+        GameOver();
+        OnGameWon?.Invoke();
     }
     #endregion
 }
