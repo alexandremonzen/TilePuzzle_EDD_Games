@@ -35,6 +35,11 @@ public sealed class MatchSettings : Singleton<MatchSettings>
         _selectedPuzzleProfile = puzzleProfile;
     }
 
+    public void SetMatchDuration(int matchDuration)
+    {
+        _matchDuration = matchDuration;
+    }
+
     public void SetMovesAvailable(int totalMoves)
     {
         _movesAvailable = totalMoves;
