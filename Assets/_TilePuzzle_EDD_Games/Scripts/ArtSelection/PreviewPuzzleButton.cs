@@ -35,6 +35,6 @@ public sealed class PreviewPuzzleButton : MonoBehaviour
     
     private void StartGame()
     {
-        SceneManager.LoadScene(_artSelection.MatchController.GameplayBuildIndex);
+        SceneManager.LoadScene(_artSelection.MatchSettings.GameplaySceneIndex);
     }
 }

@@ -12,16 +12,21 @@ public sealed class ArtSelection : MonoBehaviour
 
     private int _actualIndex;
 
-    private MatchController _matchController;
+    private MatchSettings _matchSettings;
 
     public event Action<Texture2D> OnArtSelectedWasChanged;
 
-    public MatchController MatchController { get => _matchController; }
+    public MatchSettings MatchSettings { get => _matchSettings; }
 
     private void Awake()
     {
-        _matchController = MatchController.Instance;
+        _matchSettings = MatchSettings.Instance;
         _actualIndex = 0;
+    }
+
+    private void Start()
+    {
+        _matchSettings.SetPuzzleProfile(_puzzleProfiles[_actualIndex]);
     }
 
     private void OnEnable()
@@ -41,8 +46,8 @@ public sealed class ArtSelection : MonoBehaviour
         _actualIndex += changeValue;
         _actualIndex = Mathf.Clamp(_actualIndex, 0, _puzzleProfiles.Count - 1);
 
-        _matchController.SetPuzzleProfile(_puzzleProfiles[_actualIndex]);
-        
+        _matchSettings.SetPuzzleProfile(_puzzleProfiles[_actualIndex]);
+
         OnArtSelectedWasChanged?.Invoke(_puzzleProfiles[_actualIndex].Texture2D);
     }
 }

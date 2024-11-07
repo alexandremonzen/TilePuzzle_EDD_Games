@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public sealed class TilePuzzle : MonoBehaviour, ITilePuzzle
+public sealed class TilePuzzle : MonoBehaviour
 {
     [SerializeField] private TilePiece _tilePiece;
     private int _rows;
@@ -19,18 +19,27 @@ public sealed class TilePuzzle : MonoBehaviour, ITilePuzzle
     private bool _canMovePieces = false;
     private bool _gameOver = false;
 
-    private IMatchSettings _matchSettings;
+    private MatchSettings _matchSettings;
 
-    public Action OnGameOver;
+    #region Events
+    public event Action OnCompletedPuzzle;
+    public event Action OnStartedPuzzle;
+    public event Action OnMovePiece;
+    #endregion
 
     private void Awake()
     {
+        _matchSettings = MatchSettings.Instance;
         _totalPieces = 0;
     }
 
-    public void InitPuzzle(IMatchSettings matchSettings)
+    private void Start()
     {
-        _matchSettings = matchSettings;
+        InitPuzzle();
+    }
+
+    public void InitPuzzle()
+    {
         _rows = _matchSettings.SelectedPuzzleProfile.Rows;
         _columns = _matchSettings.SelectedPuzzleProfile.Columns;
 
@@ -46,6 +55,8 @@ public sealed class TilePuzzle : MonoBehaviour, ITilePuzzle
         SetTilePiecesCorrectPlaceValues();
 
         ShuffleTilePieces();
+
+        OnStartedPuzzle?.Invoke();
     }
 
     private void GenerateGrid()
@@ -122,9 +133,7 @@ public sealed class TilePuzzle : MonoBehaviour, ITilePuzzle
         }
 
         if (PuzzleIsSolved())
-        {
             ManualUnsolvePuzzle();
-        }
 
         Invoke(nameof(AllowMovePieces), 0.5f);
     }
@@ -149,18 +158,24 @@ public sealed class TilePuzzle : MonoBehaviour, ITilePuzzle
 
         Vector2 tilePosition = tile.transform.position;
 
-        if (Vector2.Distance(tilePosition, _lastPiece.transform.position) == 1)
+        if (Vector2.Distance(tilePosition, _lastPiece.transform.position) != 1)
         {
-            tile.transform.position = _lastPiece.transform.position;
-            _lastPiece.transform.position = tilePosition;
+            _canMovePieces = true;
+            return;
         }
+
+        tile.transform.position = _lastPiece.transform.position;
+        _lastPiece.transform.position = tilePosition;
+
+        OnMovePiece?.Invoke();
 
         tile.CheckIfIsInCorrectPlace(tile.transform.position);
         _lastPiece.CheckIfIsInCorrectPlace(_lastPiece.transform.position);
 
-        CheckGameOverCondition();
-
-        Invoke(nameof(AllowMovePieces), 0.2f);
+        if (PuzzleIsSolved())
+            CompletedPuzzle();
+        else
+            Invoke(nameof(AllowMovePieces), 0.2f);
     }
 
     private bool PuzzleIsSolved()
@@ -174,17 +189,22 @@ public sealed class TilePuzzle : MonoBehaviour, ITilePuzzle
         return true;
     }
 
-    private void CheckGameOverCondition()
+    private void CompletedPuzzle()
     {
-        if (!PuzzleIsSolved())
-            return;
-
         _gameOver = true;
-        OnGameOver?.Invoke();
+        OnCompletedPuzzle?.Invoke();
     }
 
     private void AllowMovePieces()
     {
         _canMovePieces = true;
+    }
+
+    public void StopPuzzle()
+    {
+        CancelInvoke();
+        StopAllCoroutines();
+        _canMovePieces = false;
+
     }
 }

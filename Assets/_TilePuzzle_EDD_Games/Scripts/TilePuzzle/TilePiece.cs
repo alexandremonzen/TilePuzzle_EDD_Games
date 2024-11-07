@@ -14,19 +14,16 @@ public sealed class TilePiece : MonoBehaviour, IPointerClickHandler
     public bool InCorrectPlace { get => _inCorrectPlace; }
     public Vector2 CorrectPosition { get => _correctPosition; }
 
+    #region Events
     public Action<string> OnUpdateTileNumber;
     public Action OnHideTile;
     public Action<Sprite> OnUpdateSprite;
     public Action<bool> OnCleanTile;
+    #endregion
 
     private void Awake()
     {
         _collider = GetComponent<Collider2D>();
-    }
-
-    private void OnDisable()
-    {
-
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -42,7 +39,7 @@ public sealed class TilePiece : MonoBehaviour, IPointerClickHandler
     public void SetupTile(TilePuzzle tilePuzzle, int number)
     {
         _tilePuzzle = tilePuzzle;
-        _tilePuzzle.OnGameOver += SetAllTilePiecesClean;
+        _tilePuzzle.OnCompletedPuzzle += SetAllTilePiecesClean;
         OnUpdateTileNumber?.Invoke(number.ToString());
     }
 
