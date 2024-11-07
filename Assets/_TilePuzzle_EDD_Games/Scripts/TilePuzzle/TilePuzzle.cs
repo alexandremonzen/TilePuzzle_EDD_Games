@@ -24,7 +24,7 @@ public sealed class TilePuzzle : MonoBehaviour
     #region Events
     public event Action OnCompletedPuzzle;
     public event Action OnStartedPuzzle;
-    public event Action OnMovePiece;
+    public event Action OnMovedPiece;
     #endregion
 
     private void Awake()
@@ -167,7 +167,7 @@ public sealed class TilePuzzle : MonoBehaviour
         tile.transform.position = _lastPiece.transform.position;
         _lastPiece.transform.position = tilePosition;
 
-        OnMovePiece?.Invoke();
+        OnMovedPiece?.Invoke();
 
         tile.CheckIfIsInCorrectPlace(tile.transform.position);
         _lastPiece.CheckIfIsInCorrectPlace(_lastPiece.transform.position);
@@ -205,6 +205,5 @@ public sealed class TilePuzzle : MonoBehaviour
         CancelInvoke();
         StopAllCoroutines();
         _canMovePieces = false;
-
     }
 }

@@ -1,9 +1,9 @@
 using UnityEngine;
 using TMPro;
+using PrimeTween;
 
 public sealed class PieceVisual : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer _outlineRenderer;
     private TilePiece _tilePiece;
     private SpriteRenderer _spriteRenderer;
     private TMP_Text _tmpText;
@@ -30,7 +30,7 @@ public sealed class PieceVisual : MonoBehaviour
         _tilePiece.OnUpdateSprite -= UpdateSprite;
         _tilePiece.OnCleanTile -= CleanTile;
     }
-    
+
     private void UpdateTileNumber(string numberText)
     {
         _tmpText.text = numberText;
@@ -38,7 +38,7 @@ public sealed class PieceVisual : MonoBehaviour
 
     private void HideTile()
     {
-        _spriteRenderer.color = Color.clear;
+        _spriteRenderer.color = new Color(255, 255, 255, 0);
         _tmpText.color = Color.clear;
     }
 
@@ -48,10 +48,10 @@ public sealed class PieceVisual : MonoBehaviour
         _spriteRenderer.size = new Vector2(1, 1);
     }
 
-    private void CleanTile(bool condition)
+    public void CleanTile(bool condition)
     {
+        Tween.Color(_tmpText, endValue:Color.clear, 1);
         _spriteRenderer.color = Color.white;
-        _outlineRenderer.color = Color.clear;
-        _tmpText.color = Color.clear;
+        //_tmpText.color = Color.clear;
     }
 }
