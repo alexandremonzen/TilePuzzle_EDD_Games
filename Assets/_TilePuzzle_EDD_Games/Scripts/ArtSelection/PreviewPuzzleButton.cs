@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public sealed class PreviewPuzzleButton : MonoBehaviour
 {
-    private ArtSelection _artSelection;
+    private ArtSelectionScreen _artSelection;
     private RawImage _rawImage;
     private Button _button;
 
     private void Awake()
     {
-        _artSelection = GetComponentInParent<ArtSelection>();
+        _artSelection = GetComponentInParent<ArtSelectionScreen>();
         _rawImage = GetComponentInChildren<RawImage>();
         _button = GetComponent<Button>();
     }
@@ -19,7 +19,7 @@ public sealed class PreviewPuzzleButton : MonoBehaviour
     private void OnEnable()
     {
         _artSelection.OnArtSelectedWasChanged += UpdateImage;
-        _button.onClick.AddListener(StartGame);
+        _button.onClick.AddListener(GoToGameModeSelection);
     }
 
     private void OnDisable()
@@ -33,8 +33,8 @@ public sealed class PreviewPuzzleButton : MonoBehaviour
         _rawImage.texture = texture2D;
     }
     
-    private void StartGame()
+    private void GoToGameModeSelection()
     {
-        SceneManager.LoadScene(_artSelection.MatchSettings.GameplaySceneIndex);
+        _artSelection.GoToGameModeSelection();
     }
 }

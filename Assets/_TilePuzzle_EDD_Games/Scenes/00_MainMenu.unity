@@ -357,6 +357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 176058659}
   - component: {fileID: 176058662}
+  - component: {fileID: 176058663}
   - component: {fileID: 176058661}
   - component: {fileID: 176058660}
   m_Layer: 5
@@ -382,9 +383,9 @@ RectTransform:
   - {fileID: 391090821}
   m_Father: {fileID: 252140673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 134, y: -159.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 268, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &176058660
@@ -452,7 +453,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 1524953282, guid: 3bbf2ac91ff62b8429ff24c7ddf9c997, type: 3}
-  m_Type: 2
+  m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -469,6 +470,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 176058658}
   m_CullTransparentMesh: 1
+--- !u!114 &176058663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 176058658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649f57025783cdd4283ce1368839fc99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameMode: {fileID: 11400000, guid: 35ed5209fdaef434da4b75d507762cbd, type: 2}
 --- !u!1 &189240805
 GameObject:
   m_ObjectHideFlags: 0
@@ -675,8 +689,8 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 7
-  m_Spacing: 0
+  m_ChildAlignment: 4
+  m_Spacing: -100
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -1908,6 +1922,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 944612648}
+  - component: {fileID: 944612650}
   - component: {fileID: 944612649}
   m_Layer: 5
   m_Name: ArtSelectionScreen
@@ -1951,9 +1966,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _puzzleProfiles:
   - {fileID: 11400000, guid: 67c5c0c9f4e60cd499a9641849f09822, type: 2}
+  - {fileID: 11400000, guid: 5d58fed9de5388b47a8de3b1ca9a2d24, type: 2}
   - {fileID: 11400000, guid: 1d9c95e1de3d2e84eaa8e09b67a4be73, type: 2}
+  _mainMenu: {fileID: 1452140021}
+  _gameModeSelection: {fileID: 1666018755}
+  _backButton: {fileID: 1286274431}
   _nextButton: {fileID: 92435466}
   _previousButton: {fileID: 773001622}
+--- !u!225 &944612650
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 944612647}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &956547814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,6 +2556,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1276306019}
   - component: {fileID: 1276306022}
+  - component: {fileID: 1276306023}
   - component: {fileID: 1276306021}
   - component: {fileID: 1276306020}
   m_Layer: 5
@@ -2550,9 +2582,9 @@ RectTransform:
   - {fileID: 1347476614}
   m_Father: {fileID: 252140673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 134, y: -59.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 268, y: 81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1276306020
@@ -2637,6 +2669,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276306018}
   m_CullTransparentMesh: 1
+--- !u!114 &1276306023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276306018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649f57025783cdd4283ce1368839fc99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameMode: {fileID: 11400000, guid: f071f884a12a25a47bebec504a94cf4f, type: 2}
 --- !u!1 &1278814381
 GameObject:
   m_ObjectHideFlags: 0
@@ -3158,15 +3203,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1452140020}
-  - component: {fileID: 1452140021}
   - component: {fileID: 1452140022}
+  - component: {fileID: 1452140021}
   m_Layer: 5
   m_Name: MenuScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1452140020
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3202,6 +3247,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e074c93d3a578aa4ea609c87520fe6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _artSelection: {fileID: 944612649}
+  _playButton: {fileID: 1084636607}
+  _optionsButton: {fileID: 437191899}
+  _creditsButton: {fileID: 1754211842}
 --- !u!225 &1452140022
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -3337,7 +3386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1544424070
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3540,13 +3589,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1666018754}
+  - component: {fileID: 1666018756}
+  - component: {fileID: 1666018755}
   m_Layer: 5
   m_Name: GameModeSelection_Screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1666018754
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3568,6 +3619,32 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1666018755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666018753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 276a1b50741ec1c40ba30bec46c5e1b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _artSelectionScreen: {fileID: 944612649}
+  _backButton: {fileID: 1045444500}
+--- !u!225 &1666018756
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666018753}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1 &1671892864
 GameObject:
   m_ObjectHideFlags: 0
