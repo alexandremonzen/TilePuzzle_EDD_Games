@@ -17,12 +17,18 @@ public sealed class MatchSettings : Singleton<MatchSettings>
     [Tooltip("If -1 or less, disable this game over condition in game")]
     [SerializeField] private int _movesAvailable = -1;
 
+    [Header("Audio")]
+    [SerializeField] private AudioClip _movePieceClip;
+    [SerializeField] private AudioClip _clockClip;
+
     #region Getters
     public PuzzleProfile SelectedPuzzleProfile { get => _selectedPuzzleProfile; }
     public int MainMenuSceneIndex { get => _mainMenuSceneIndex; }
     public int GameplaySceneIndex { get => _gameplaySceneIndex; }
     public int MatchDuration { get => _matchDuration; }
     public int MovesAvailable { get => _movesAvailable; }
+    public AudioClip MovePieceClip { get => _movePieceClip; }
+    public AudioClip ClockClip { get => _clockClip; }
     #endregion
 
     protected override void OnAwake()
