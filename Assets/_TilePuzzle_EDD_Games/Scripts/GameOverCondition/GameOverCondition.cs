@@ -118,18 +118,21 @@ public sealed class GameOverCondition : MonoBehaviour
     {
         GameOver();
         OnTimeEnded?.Invoke();
+        _audioManager.PlayAudio(_matchSettings.LoseClip);
     }
 
     private void GameOverByMoves()
     {
         GameOver();
         OnMovesOver?.Invoke();
+        _audioManager.PlayAudio(_matchSettings.LoseClip);
     }
 
     private void GameWon()
     {
         GameOver();
         OnGameWon?.Invoke();
+        _audioManager.PlayAudio(_matchSettings.VictoryClip);
     }
     #endregion
 }

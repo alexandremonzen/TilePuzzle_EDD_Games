@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1056234162908302802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1348521953125708003}
+  - component: {fileID: 2215893340050249687}
+  m_Layer: 0
+  m_Name: MatchSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1348521953125708003
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056234162908302802}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2215893340050249687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056234162908302802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e5a7405ac8f3d49bb84a356618d005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _persistent: 1
+  _mainMenuSceneIndex: 0
+  _gameplaySceneIndex: 1
+  _defaultPuzzleProfile: {fileID: 11400000, guid: 67c5c0c9f4e60cd499a9641849f09822,
+    type: 2}
+  _matchDuration: 60
+  _movesAvailable: 30
+  _movePieceClip: {fileID: 8300000, guid: 5bdcd31d5bbe78a47b73697dea12ed48, type: 3}
+  _clockClip: {fileID: 8300000, guid: 3fcc68378f0dc8541a6f267f85eaeedd, type: 3}
+  _victoryClip: {fileID: 8300000, guid: 533511071937ff341a989eb7b09a09b1, type: 3}
+  _loseClip: {fileID: 8300000, guid: c9938831dcd43634aa3e19bbce7b2b40, type: 3}
