@@ -20,6 +20,8 @@ public sealed class MatchSettings : Singleton<MatchSettings>
     [Header("Audio")]
     [SerializeField] private AudioClip _movePieceClip;
     [SerializeField] private AudioClip _clockClip;
+    [SerializeField] private AudioClip _victoryClip;
+    [SerializeField] private AudioClip _loseClip;
 
     #region Getters
     public PuzzleProfile SelectedPuzzleProfile { get => _selectedPuzzleProfile; }
@@ -29,6 +31,8 @@ public sealed class MatchSettings : Singleton<MatchSettings>
     public int MovesAvailable { get => _movesAvailable; }
     public AudioClip MovePieceClip { get => _movePieceClip; }
     public AudioClip ClockClip { get => _clockClip; }
+    public AudioClip VictoryClip { get => _victoryClip; }
+    public AudioClip LoseClip { get => _loseClip; }
     #endregion
 
     protected override void OnAwake()
