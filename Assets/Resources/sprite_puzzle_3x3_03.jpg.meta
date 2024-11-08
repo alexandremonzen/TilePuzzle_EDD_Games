@@ -106,6 +106,32 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -114,9 +140,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 750
-        width: 250
-        height: 250
+        y: 666.6666
+        width: 333.33334
+        height: 333.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +160,10 @@ TextureImporter:
       name: sprite_puzzle_3x3_03_1
       rect:
         serializedVersion: 2
-        x: 250
-        y: 750
-        width: 250
-        height: 250
+        x: 333
+        y: 666.6666
+        width: 333.33334
+        height: 333.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +181,10 @@ TextureImporter:
       name: sprite_puzzle_3x3_03_2
       rect:
         serializedVersion: 2
-        x: 500
-        y: 750
-        width: 250
-        height: 250
+        x: 666
+        y: 666.6666
+        width: 333.33334
+        height: 333.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +202,10 @@ TextureImporter:
       name: sprite_puzzle_3x3_03_3
       rect:
         serializedVersion: 2
-        x: 750
-        y: 750
-        width: 250
-        height: 250
+        x: 0
+        y: 333.66666
+        width: 333.33334
+        height: 333.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +223,10 @@ TextureImporter:
       name: sprite_puzzle_3x3_03_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 500
-        width: 250
-        height: 250
+        x: 333
+        y: 333.66666
+        width: 333.33334
+        height: 333.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +244,10 @@ TextureImporter:
       name: sprite_puzzle_3x3_03_5
       rect:
         serializedVersion: 2
-        x: 250
-        y: 500
-        width: 250
-        height: 250
+        x: 666
+        y: 333.66666
+        width: 333.33334
+        height: 333.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +265,10 @@ TextureImporter:
       name: sprite_puzzle_3x3_03_6
       rect:
         serializedVersion: 2
-        x: 500
-        y: 500
-        width: 250
-        height: 250
+        x: 0
+        y: 0.6666565
+        width: 333.33334
+        height: 333.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +286,10 @@ TextureImporter:
       name: sprite_puzzle_3x3_03_7
       rect:
         serializedVersion: 2
-        x: 750
-        y: 500
-        width: 250
-        height: 250
+        x: 333
+        y: 0.6666565
+        width: 333.33334
+        height: 333.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,10 +307,10 @@ TextureImporter:
       name: sprite_puzzle_3x3_03_8
       rect:
         serializedVersion: 2
-        x: 0
-        y: 250
-        width: 250
-        height: 250
+        x: 666
+        y: 0.6666565
+        width: 333.33334
+        height: 333.33334
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -294,153 +320,6 @@ TextureImporter:
       bones: []
       spriteID: 0b03aefef7202644295418957363bd96
       internalID: 963719594
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_puzzle_3x3_03_9
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 250
-        width: 250
-        height: 250
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7e9b28c2bcc43464abaaeee75dea47d2
-      internalID: -901621289
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_puzzle_3x3_03_10
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 250
-        width: 250
-        height: 250
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8a503cab9a8d0c94d9515c5f78a721a0
-      internalID: 1798836087
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_puzzle_3x3_03_11
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 250
-        width: 250
-        height: 250
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6bec7a090c4cdef4faf83ca974e4cfd8
-      internalID: -178485902
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_puzzle_3x3_03_12
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 250
-        height: 250
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f75d2347899c3b34da2a5319d39f5411
-      internalID: -1833614233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_puzzle_3x3_03_13
-      rect:
-        serializedVersion: 2
-        x: 250
-        y: 0
-        width: 250
-        height: 250
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1c054951bf3615646a751f0053590673
-      internalID: 1880816013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_puzzle_3x3_03_14
-      rect:
-        serializedVersion: 2
-        x: 500
-        y: 0
-        width: 250
-        height: 250
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2638865bc2bb11c45a361aada31b98fd
-      internalID: -103853947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sprite_puzzle_3x3_03_15
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 0
-        width: 250
-        height: 250
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b47d2a613f242641aad6130f8cc8a07
-      internalID: -1100105483
       vertices: []
       indices: 
       edges: []
@@ -458,12 +337,6 @@ TextureImporter:
     nameFileIdTable:
       sprite_puzzle_3x3_03_0: 719102055
       sprite_puzzle_3x3_03_1: -611413369
-      sprite_puzzle_3x3_03_10: 1798836087
-      sprite_puzzle_3x3_03_11: -178485902
-      sprite_puzzle_3x3_03_12: -1833614233
-      sprite_puzzle_3x3_03_13: 1880816013
-      sprite_puzzle_3x3_03_14: -103853947
-      sprite_puzzle_3x3_03_15: -1100105483
       sprite_puzzle_3x3_03_2: 345769205
       sprite_puzzle_3x3_03_3: 996997163
       sprite_puzzle_3x3_03_4: 242245073
@@ -471,7 +344,6 @@ TextureImporter:
       sprite_puzzle_3x3_03_6: 1424488799
       sprite_puzzle_3x3_03_7: -1814038705
       sprite_puzzle_3x3_03_8: 963719594
-      sprite_puzzle_3x3_03_9: -901621289
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

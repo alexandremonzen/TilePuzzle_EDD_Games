@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d8dee5b221459b408f90fcbf5ac56b4, type: 3}
-  m_Name: Puzzle_02_4x4
+  m_Name: Puzzle_03_3x3
   m_EditorClassIdentifier: 
-  _rows: 4
-  _columns: 4
+  _rows: 3
+  _columns: 3
   _texture2D: {fileID: 2800000, guid: afdd8c9e8a6db6148b3f4104e046ad66, type: 3}

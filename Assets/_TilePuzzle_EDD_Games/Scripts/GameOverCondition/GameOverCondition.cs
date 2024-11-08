@@ -14,6 +14,9 @@ public sealed class GameOverCondition : MonoBehaviour
     private TilePuzzle _tilePuzzle;
     private MatchSettings _matchSettings;
 
+    private AudioManager _audioManager;
+    private bool _playedClockBuffer;
+
     #region Events
     public event Action OnTimeEnded;
     public event Action<int> OnTimeUpdated;
@@ -25,6 +28,9 @@ public sealed class GameOverCondition : MonoBehaviour
     private void Awake()
     {
         _tilePuzzle = FindFirstObjectByType<TilePuzzle>();
+
+        _audioManager = AudioManager.Instance;
+        _playedClockBuffer = false;
 
         _matchSettings = MatchSettings.Instance;
         _matchDuration = _matchSettings.MatchDuration;
@@ -76,9 +82,20 @@ public sealed class GameOverCondition : MonoBehaviour
             yield return _waitTime;
             _secondsRemaing -= _timeRate;
             OnTimeUpdated?.Invoke(_secondsRemaing);
+
+            CheckClockAudio();
         }
 
         GameOverByTime();
+    }
+
+    private void CheckClockAudio()
+    {
+        if (!_playedClockBuffer && _secondsRemaing <= 10)
+        {
+            _audioManager.PlayAudio(_matchSettings.ClockClip);
+            _playedClockBuffer = true;
+        }
     }
 
     private void CheckMovesAvailable()

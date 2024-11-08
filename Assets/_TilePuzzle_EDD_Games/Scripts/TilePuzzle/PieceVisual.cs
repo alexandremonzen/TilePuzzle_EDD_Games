@@ -7,7 +7,7 @@ public sealed class PieceVisual : MonoBehaviour
     private TilePiece _tilePiece;
     private SpriteRenderer _spriteRenderer;
     private TMP_Text _tmpText;
-
+    
     private void Awake()
     {
         _tilePiece = GetComponentInParent<TilePiece>();
@@ -50,8 +50,7 @@ public sealed class PieceVisual : MonoBehaviour
 
     public void CleanTile(bool condition)
     {
-        Tween.Color(_tmpText, endValue:Color.clear, 1);
-        _spriteRenderer.color = Color.white;
-        //_tmpText.color = Color.clear;
+        Tween.Color(_tmpText, endValue: Color.clear, 1.5f);
+        Tween.Color(_spriteRenderer, endValue: Color.white, 1.5f);
     }
 }

@@ -6,13 +6,15 @@ using TMPro;
 
 public sealed class TilePiece : MonoBehaviour, IPointerClickHandler
 {
-    private Collider2D _collider;
     private TilePuzzle _tilePuzzle;
+    private Collider2D _collider;
     private bool _inCorrectPlace = false;
     private Vector2 _correctPosition;
 
+    #region Getters
     public bool InCorrectPlace { get => _inCorrectPlace; }
     public Vector2 CorrectPosition { get => _correctPosition; }
+    #endregion
 
     #region Events
     public Action<string> OnUpdateTileNumber;
@@ -69,8 +71,6 @@ public sealed class TilePiece : MonoBehaviour, IPointerClickHandler
 
     public void SetAllTilePiecesClean()
     {
-        //checar se tem a opção de imagem ligada
-
         OnCleanTile?.Invoke(true);
     }
 }
